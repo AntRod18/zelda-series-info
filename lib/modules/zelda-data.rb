@@ -1,0 +1,3 @@
+module ZeldaData
+
+end
