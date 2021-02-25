@@ -6,15 +6,20 @@ class Zelda
     def initialize(data)
         data.each do |key, value| 
             self.class.attr_accessor(key)
-            self.send(("#{key}="), value)
+            self.send("#{key}=", value)
         end
-        # 
         @@all << self
     end
 
     def self.all
         @@all
     end
+
+    def self.find_by_name(game_name)
+        self.all.find {|game| game.name == game_name}
+    end
+
+   
 
 
 end
