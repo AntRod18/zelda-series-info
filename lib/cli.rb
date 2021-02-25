@@ -7,8 +7,8 @@ class CLI
 
     def run
         greeting
-        main_menu
-        
+        menu
+        # goodbye
     end
 
     def greeting
@@ -23,16 +23,26 @@ class CLI
         end
     end
 
-    def main_menu
+    def menu
         prompt = TTY::Prompt.new
         input = prompt.select("Please choose a game you would like more information about.", display, per_page: 10)
         game = Zelda.find_by_name(input)
         display_game_data(game)
+        second_input = nil
+        while second_input != "Exit"
+            second_input = prompt.select("What would you like to do?", %w(Menu Exit))
+            case second_input
+            when "Menu"
+                menu
+            when "Exit"
+                goodbye
+            end
+        end
     end
 
     def display_game_data(input)
         puts "***********************************************"
-        puts "#{input.name}: Released on #{input.released_date}"
+        puts "#{input.name}: Released on#{input.released_date}"
         puts "***********************************************"
         puts "#{input.description}"
         puts "***********************************************"
@@ -42,5 +52,8 @@ class CLI
         puts "***********************************************"
     end
     
-
+    def goodbye
+        puts "Have a great day and thank you for using my Zelda cli!!!"
+        exit
+    end
 end
