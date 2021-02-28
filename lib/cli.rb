@@ -8,7 +8,6 @@ class CLI
     def run
         greeting
         menu
-        # goodbye
     end
 
     def greeting
