@@ -8,8 +8,8 @@ class API
     def get_and_create_games
         series_hash = HTTParty.get(@url)
         if series_hash["success"] 
-            series_hash = series_hash["data"]
-            series_hash.each do |games|
+            series_array = series_hash["data"]
+            series_array.each do |games|
                 Zelda.new(games)
             end
         else

@@ -5,6 +5,7 @@ class Zelda
     # metaprogramming in order to use attributes as needed
     def initialize(data)
         data.each do |key, value| 
+            # binding.pry
             self.class.attr_accessor(key)
             self.send("#{key}=", value)
         end

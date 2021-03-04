@@ -3,7 +3,7 @@
 
 class CLI
     
-    attr_accessor :input
+    # attr_accessor :input
 
     def run
         greeting

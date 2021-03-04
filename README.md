@@ -4,7 +4,6 @@
 ## Installation
 In order to install this CLI you must first clone and fork this repository.
 And then execute:
-
     $ bundle install
 
 
